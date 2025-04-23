@@ -43,26 +43,25 @@ export default function DashboardLayout({ children }) {
   const [userRole, setUserRole] = useState("professor")
 
   return (
-    <div className="flex min-h-screen bg-slate-50">
+    <div className="flex min-h-screenbg-emerald-600">
       {/* Sidebar para desktop */}
       <aside className="hidden md:flex w-64 flex-col border-r bg-white">
         <div className="flex h-14 items-center border-b px-4">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center">
-              <span className="text-white text-xs font-bold">PE</span>
+          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+              <img
+                 src="/livro.png"
+                alt="Ícone"
+                className="w-4 h-6 object-contain"
+              />
             </div>
-            <span className="font-semibold">Permanência Escolar</span>
+            <span className="font-semibold">EducaFlow</span>
           </Link>
         </div>
         <nav className="flex-1 overflow-auto py-4 px-2">
           <div className="space-y-1">
             <NavItem href="/dashboard" icon={Home} label="Dashboard" active={pathname === "/dashboard"} />
-            <NavItem
-              href="/dashboard/ai-assistant"
-              icon={BrainCircuit}
-              label="Assistente IA"
-              active={pathname === "/dashboard/ai-assistant"}
-            />
+    
 
             {userRole === "professor" && (
               <>
@@ -72,24 +71,14 @@ export default function DashboardLayout({ children }) {
                   label="Alunos em Risco"
                   active={pathname === "/dashboard/professor/alunos-risco"}
                 />
-                <NavItem
-                  href="/dashboard/professor/frequencia"
-                  icon={Calendar}
-                  label="Análise de Frequência"
-                  active={pathname === "/dashboard/professor/frequencia"}
-                />
+              
                 <NavItem
                   href="/dashboard/students"
                   icon={Users}
                   label="Alunos"
                   active={pathname === "/dashboard/students"}
                 />
-                <NavItem
-                  href="/dashboard/courses"
-                  icon={BookOpen}
-                  label="Cursos"
-                  active={pathname === "/dashboard/courses"}
-                />
+               
               </>
             )}
 
@@ -101,18 +90,7 @@ export default function DashboardLayout({ children }) {
                   label="Alunos em Risco"
                   active={pathname === "/dashboard/gestao/alunos-risco"}
                 />
-                <NavItem
-                  href="/dashboard/analytics"
-                  icon={BarChart2}
-                  label="Análises"
-                  active={pathname === "/dashboard/analytics"}
-                />
-                <NavItem
-                  href="/dashboard/reports"
-                  icon={FileText}
-                  label="Relatórios"
-                  active={pathname === "/dashboard/reports"}
-                />
+               
               </>
             )}
 
@@ -139,18 +117,7 @@ export default function DashboardLayout({ children }) {
               </>
             )}
 
-            <NavItem
-              href="/dashboard/messages"
-              icon={MessageSquare}
-              label="Mensagens"
-              active={pathname === "/dashboard/messages"}
-            />
-            <NavItem
-              href="/dashboard/settings"
-              icon={Settings}
-              label="Configurações"
-              active={pathname === "/dashboard/settings"}
-            />
+        
           </div>
         </nav>
         <div className="border-t p-4">
@@ -244,18 +211,7 @@ export default function DashboardLayout({ children }) {
                     label="Alunos em Risco"
                     active={pathname === "/dashboard/gestao/alunos-risco"}
                   />
-                  <NavItem
-                    href="/dashboard/analytics"
-                    icon={BarChart2}
-                    label="Análises"
-                    active={pathname === "/dashboard/analytics"}
-                  />
-                  <NavItem
-                    href="/dashboard/reports"
-                    icon={FileText}
-                    label="Relatórios"
-                    active={pathname === "/dashboard/reports"}
-                  />
+                
                 </>
               )}
 
@@ -319,23 +275,18 @@ export default function DashboardLayout({ children }) {
       {/* Main content */}
       <div className="flex-1 flex flex-col">
         <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-white px-4 md:px-6">
-          <div className="hidden md:block">
-            <h1 className="text-lg font-semibold">Dashboard</h1>
-          </div>
-          <div className="ml-auto flex items-center gap-4">
-            <select
-              className="rounded-md border border-gray-300 bg-white px-3 py-1 text-sm"
-              value={userRole}
-              onChange={(e) => setUserRole(e.target.value)}
-            >
-              <option value="professor">Professor</option>
-              <option value="gestor">Gestor</option>
-              <option value="empresa">Empresa</option>
-            </select>
-            <Avatar>
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
-          </div>
+          
+        <div className="ml-auto flex items-center gap-4">
+          <div className="w-10 h-9 rounded-full overflow-hidden">
+             <img
+                src="/do-utilizador.png"
+                alt="Ícone de Livro"
+               className="w-full h-full object-cover"
+              />
+           </div>
+         </div>
+
+
         </header>
         <main className="flex-1 overflow-auto p-4 md:p-6">{children}</main>
       </div>
